@@ -133,14 +133,9 @@ function loop(t){
 if(!reduceMotion){ requestAnimationFrame(loop); } else { drawGrid(); }
 window.addEventListener('scroll', () => { if(reduceMotion){ ctx.clearRect(0,0,W,H); drawGrid(); } }, {passive:true});
 
-/* ================= SCROLL REVEAL ================= */
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
-  });
-}, {threshold:0.15});
-revealEls.forEach(el => io.observe(el));
+/* Scroll-reveal observer is initialized at the end of this file, after all
+   dynamically-rendered content (cards, grids, modals) has been built — see
+   bottom of file. Setting it up here would miss anything injected later. */
 
 /* ================= COUNTERS ================= */
 const counters = document.querySelectorAll('[data-count]');
@@ -453,24 +448,220 @@ if(socWrap){
   socIo.observe(socWrap);
 }
 
-/* ================= TRAINING DATA ================= */
-const training = [
-  {tag:'Ethical Hacking', t:'CEH Preparation Training', img:'images/course-ceh-preparation.svg', chips:['Recon','Network Security','Web App Security','Vulnerability Assessment','Pentest Concepts','Incident Response']},
-  {tag:'Networking', t:'CCNA / Network Security Foundations', img:'images/course-ccna-networking.svg', chips:['TCP/IP','Routing','Switching','VLANs','Firewalls','Secure Architecture']},
-  {tag:'Beginner', t:'Cybersecurity Fundamentals', img:'images/course-cybersecurity-fundamentals.svg', chips:['Threats & Vulnerabilities','Authentication','Malware','Social Engineering','Security Ops','Incident Response']},
-  {tag:'Advanced', t:'Advanced Cybersecurity', img:'images/course-advanced-cybersecurity.svg', chips:['Web & API Security','Active Directory','Cloud Security','SIEM','Digital Forensics','Red Team / Blue Team']},
-];
-const trainingGridEl = document.getElementById('trainingGrid');
-if(trainingGridEl){
-  trainingGridEl.innerHTML = training.map((tr,i) => `
-    <div class="card training-card reveal reveal-delay-${(i%4)+1}">
-      <div class="picture-panel course-picture"><img src="${tr.img}" alt="${tr.t} course illustration" loading="lazy" width="640" height="400"></div>
-      <span class="tag">${tr.tag}</span>
-      <h3 style="margin-top:8px;">${tr.t}</h3>
-      <div class="chip-row">${tr.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
-    </div>`).join('');
+/* RED SHIELD TRAINING SECTION */
+const courseTracks = {
+  cybersecurity: {
+    label:'Cybersecurity',
+    badge:'Cybersecurity',
+    title:'Cybersecurity Fundamentals & Ethical Hacking',
+    img:'images/photos/cybercrime-alert.jpg',
+    desc:'Build a strong foundation in cybersecurity, ethical hacking, network security, Linux security, vulnerability assessment, web security, and defensive security.',
+    level:'Beginner → Intermediate',
+    duration:'[ editable — duration ]',
+    overview:'A practical cybersecurity training program designed to build strong foundations in offensive security, defensive security, networking, Linux, vulnerability assessment, and ethical hacking. The course takes students from cybersecurity fundamentals toward practical security testing and defensive analysis, using hands-on labs rather than slides alone.',
+    learn:['Cybersecurity fundamentals','CIA Triad','Threats, vulnerabilities & risks','Security controls','Networking fundamentals','TCP/IP & the OSI model','IP addressing','Ports & protocols','Linux fundamentals','Windows security fundamentals','Reconnaissance & footprinting','Network scanning & enumeration','Vulnerability assessment','Password security & authentication','Web application security','OWASP fundamentals','API security fundamentals','Wireless security','Social engineering awareness','Malware fundamentals','Cryptography fundamentals','Security monitoring','Incident response fundamentals','SOC fundamentals & log analysis','Defensive security','Ethical hacking methodology'],
+    roadmap:[
+      {t:'Cybersecurity Fundamentals', d:'Core concepts, the CIA triad, and how risk is assessed.'},
+      {t:'Networking Fundamentals', d:'TCP/IP, the OSI model, and how data actually moves.'},
+      {t:'Linux & Windows Security', d:'Hardening and securing the two dominant operating systems.'},
+      {t:'Reconnaissance & Info Gathering', d:'Footprinting a target the way an attacker would.'},
+      {t:'Scanning & Enumeration', d:'Mapping live hosts, ports, and services.'},
+      {t:'Vulnerability Assessment', d:'Finding and prioritizing weaknesses systematically.'},
+      {t:'Web Application Security', d:'OWASP-based testing of real web applications.'},
+      {t:'Authentication & Password Security', d:'Where identity controls succeed and fail.'},
+      {t:'Wireless & Network Security', d:'Securing Wi-Fi and network-level defenses.'},
+      {t:'Security Monitoring & SOC', d:'Reading logs and alerts like an analyst.'},
+      {t:'Incident Response', d:'What to do in the first hour of a real incident.'},
+      {t:'Practical Capstone', d:'A full assessment tying every module together.'},
+    ],
+    labs:['Linux Security Lab','Network Scanning Lab','Vulnerability Assessment Lab','Web Security Lab','OWASP Lab','Password Security Lab','Wi-Fi Security Lab','SOC Monitoring Lab','Log Analysis Lab','Incident Response Lab','CTF Challenge Lab','Final Security Assessment'],
+    tools:['Kali Linux','Nmap','Wireshark','Burp Suite','Metasploit','OWASP ZAP','Gobuster','Nikto','Linux CLI','Wazuh','SIEM concepts','Git','Python fundamentals'],
+    who:'Aspiring pentesters, SOC analysts, and IT staff moving into a security role.',
+    prerequisites:'Basic computer literacy. Prior networking/OS exposure helps but isn\u2019t required.',
+    outcomes:['Understand modern cybersecurity concepts','Analyze common security threats','Perform authorized security assessments','Understand vulnerability management','Analyze network traffic','Understand web security','Work with security tools','Understand SOC operations','Perform basic incident analysis','Build a cybersecurity lab environment'],
+  },
+  ccna: {
+    label:'CCNA',
+    badge:'Networking',
+    title:'CCNA — Cisco Networking Fundamentals',
+    img:'images/course-ccna-networking.svg',
+    desc:'Learn networking from the ground up including IP addressing, subnetting, switching, routing, VLANs, network security, wireless networking, and troubleshooting.',
+    level:'Beginner',
+    duration:'[ editable — duration ]',
+    overview:'A practical networking course designed to establish strong networking fundamentals required for cybersecurity, system administration, cloud, and IT careers. This is the recommended starting point before Cybersecurity Fundamentals.',
+    learn:['Networking fundamentals','OSI model','TCP/IP model','Ethernet & MAC addresses','IPv4','IPv6','Binary basics','Subnetting','VLSM fundamentals','ARP & ICMP','TCP & UDP','DNS & DHCP','NAT','Switching','VLANs & trunking','STP fundamentals','Static routing','Dynamic routing concepts','Wireless networking','Network security','ACLs','Device management','Troubleshooting','Automation & programmability fundamentals'],
+    roadmap:[
+      {t:'Networking Fundamentals', d:'What a network actually is, end to end.'},
+      {t:'OSI & TCP/IP Models', d:'The mental model behind every networking concept.'},
+      {t:'IPv4 & IPv6 Addressing', d:'How devices get and use addresses.'},
+      {t:'Subnetting', d:'Dividing networks efficiently — by hand, not just a calculator.'},
+      {t:'Ethernet & Switching', d:'How traffic actually moves on the local network.'},
+      {t:'VLANs & Trunking', d:'Segmenting networks for security and performance.'},
+      {t:'Routing Fundamentals', d:'How traffic finds its way between networks.'},
+      {t:'Routing Protocol Concepts', d:'Static vs dynamic routing, and when to use each.'},
+      {t:'Wireless Networking', d:'Wi-Fi standards, security, and configuration.'},
+      {t:'IP Services', d:'DHCP, NAT, and NTP in practice.'},
+      {t:'Network Security', d:'ACLs and baseline device hardening.'},
+      {t:'Troubleshooting & Capstone', d:'Diagnosing and fixing a broken network topology.'},
+    ],
+    labs:['Cisco Router Configuration','Cisco Switch Configuration','VLAN Configuration','Trunk Configuration','Inter-VLAN Routing','Static Routing','DHCP Configuration','NAT Configuration','ACL Configuration','IPv4 Subnetting Lab','IPv6 Lab','Network Troubleshooting','Packet Tracer Labs','Final Network Design'],
+    tools:['Cisco Packet Tracer','Wireshark','Cisco IOS','Linux networking tools','Ping','Traceroute','Netstat / ss','IP utilities'],
+    who:'Beginners, career-changers, and anyone starting before Cybersecurity Fundamentals.',
+    prerequisites:'None — this is the recommended starting point for newcomers to IT and security.',
+    outcomes:['Design basic networks','Configure network devices in labs','Understand routing and switching','Calculate subnets','Configure VLANs','Understand network services','Troubleshoot connectivity','Apply basic network security','Build enterprise-style lab topologies'],
+  },
+};
+const trackOrder = ['cybersecurity','ccna'];
+
+/* -- course spotlight cards -- */
+const courseSpotlightGridEl = document.getElementById('courseSpotlightGrid');
+if(courseSpotlightGridEl){
+  courseSpotlightGridEl.innerHTML = trackOrder.map((key,i) => {
+    const c = courseTracks[key];
+    return `
+    <div class="card course-spotlight reveal reveal-delay-${i+1}">
+      <div class="course-spotlight-img">
+        <img src="${c.img}" alt="${c.title}" loading="lazy">
+        <span class="course-spotlight-badge">${c.badge}</span>
+      </div>
+      <div class="course-spotlight-body">
+        <h3>${c.title}</h3>
+        <p class="desc">${c.desc}</p>
+        <div class="course-meta-row">
+          <span>LEVEL: ${c.level}</span>
+          <span>⏱ ${c.duration}</span>
+          <span>HANDS-ON LABS</span>
+        </div>
+        <button class="read-more-btn" type="button" data-open-course="${key}">Read More <span class="arrow">→</span></button>
+      </div>
+    </div>`;
+  }).join('');
 }
-// Note: CEH/CCNA are used here as preparation/foundations training, not implying official certification partnership.
+
+/* -- generic tab system for roadmap / labs / tools / outcomes -- */
+function buildTabs(tabsId, panelsId, renderPanel){
+  const tabsEl = document.getElementById(tabsId);
+  const panelsEl = document.getElementById(panelsId);
+  if(!tabsEl || !panelsEl) return;
+  tabsEl.innerHTML = trackOrder.map((key,i) => `<button class="track-tab${i===0?' active':''}" type="button" role="tab" aria-selected="${i===0}" data-track-tab="${key}">${courseTracks[key].label}</button>`).join('');
+  panelsEl.innerHTML = trackOrder.map((key,i) => `<div class="track-panel${i===0?' active':''}" data-track-panel="${key}">${renderPanel(courseTracks[key])}</div>`).join('');
+  tabsEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-track-tab]');
+    if(!btn) return;
+    const track = btn.dataset.trackTab;
+    tabsEl.querySelectorAll('.track-tab').forEach(t => { t.classList.toggle('active', t === btn); t.setAttribute('aria-selected', t === btn); });
+    panelsEl.querySelectorAll('.track-panel').forEach(p => p.classList.toggle('active', p.dataset.trackPanel === track));
+  });
+}
+
+buildTabs('roadmapTabs','roadmapPanels', (c) => `
+  <div class="roadmap-grid">${c.roadmap.map((m,i) => `
+    <div class="card module-card reveal reveal-delay-${(i%4)+1}">
+      <span class="mod-n">MODULE ${String(i+1).padStart(2,'0')}</span>
+      <h5>${m.t}</h5>
+      <p>${m.d}</p>
+    </div>`).join('')}</div>`);
+
+buildTabs('labTabs','labPanels', (c) => `
+  <div class="lab-badge-grid">${c.labs.map(l => `<span class="lab-badge">${l}</span>`).join('')}</div>`);
+
+buildTabs('toolTabs','toolPanels', (c) => `
+  <div class="tool-badge-grid">${c.tools.map(t => `<span class="tool-badge">${t}</span>`).join('')}</div>`);
+
+buildTabs('outcomeTabs','outcomePanels', (c) => `
+  <div class="outcome-grid">${c.outcomes.map(o => `<div class="card outcome-card"><span class="oc-icon">✓</span><p>${o}</p></div>`).join('')}</div>`);
+
+/* -- training journey -- */
+const trainingJourneyEl = document.getElementById('trainingJourney');
+if(trainingJourneyEl){
+  const journeySteps = ['START','NETWORKING FOUNDATION','CYBERSECURITY FUNDAMENTALS','HANDS-ON LABS','SPECIALIZATION','CAPSTONE PROJECT','JOB-READY SKILLS'];
+  trainingJourneyEl.innerHTML = journeySteps.map((s,i) => `
+    ${i>0 ? '<div class="journey-connector"></div>' : ''}
+    <div class="journey-node reveal reveal-delay-${(i%4)+1}"><span class="jn-dot"></span>${s}</div>`).join('');
+}
+
+/* -- course details modal -- */
+const courseModalOverlay = document.getElementById('courseModalOverlay');
+if(courseModalOverlay){
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalHeroImg = document.getElementById('modalHeroImg');
+  const modalTag = document.getElementById('modalTag');
+  const modalTitle = document.getElementById('courseModalTitle');
+  const modalBody = document.getElementById('modalBody');
+  let lastFocused = null;
+
+  function renderModalBody(c){
+    return `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p class="modal-overview">${c.overview}</p>
+      </div>
+      <div class="modal-section">
+        <h4>What You Will Learn</h4>
+        <ul class="modal-checklist">${c.learn.map(l => `<li>${l}</li>`).join('')}</ul>
+      </div>
+      <div class="modal-section">
+        <h4>Course Roadmap</h4>
+        <div class="modal-roadmap">${c.roadmap.map((m,i) => `
+          <div class="mr-step"><span class="mr-n">MODULE ${String(i+1).padStart(2,'0')}</span><span><span class="mr-t">${m.t}</span><div class="mr-d">${m.d}</div></span></div>`).join('')}</div>
+      </div>
+      <div class="modal-two-col">
+        <div class="modal-section">
+          <h4>Hands-On Labs</h4>
+          <div class="modal-tags">${c.labs.map(l => `<span>${l}</span>`).join('')}</div>
+          <span class="lab-authorized-tag" style="margin-top:12px;">AUTHORIZED TRAINING ENVIRONMENT</span>
+        </div>
+        <div class="modal-section">
+          <h4>Tools</h4>
+          <div class="modal-tags">${c.tools.map(t => `<span>${t}</span>`).join('')}</div>
+        </div>
+      </div>
+      <div class="modal-two-col">
+        <div class="modal-section">
+          <h4>Who Should Take This</h4>
+          <p class="modal-meta-block"><b>Who it's for:</b> ${c.who}</p>
+          <p class="modal-meta-block" style="margin-top:10px;"><b>Prerequisites:</b> ${c.prerequisites}</p>
+        </div>
+        <div class="modal-section">
+          <h4>Learning Outcomes</h4>
+          <ul class="modal-checklist" style="grid-template-columns:1fr;">${c.outcomes.slice(0,6).map(o => `<li>${o}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="modal-cta">
+        <a href="contact.html" class="btn btn-primary" data-cursor="REQUEST">Start Training →</a>
+        <button class="btn btn-ghost" type="button" data-close-modal>Close</button>
+      </div>`;
+  }
+
+  function openCourseModal(key){
+    const c = courseTracks[key];
+    if(!c) return;
+    lastFocused = document.activeElement;
+    modalHeroImg.src = c.img; modalHeroImg.alt = c.title;
+    modalTag.textContent = c.badge;
+    modalTitle.textContent = c.title;
+    modalBody.innerHTML = renderModalBody(c);
+    courseModalOverlay.classList.add('open');
+    courseModalOverlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    modalCloseBtn.focus();
+  }
+  function closeCourseModal(){
+    courseModalOverlay.classList.remove('open');
+    courseModalOverlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastFocused) lastFocused.focus();
+  }
+
+  document.addEventListener('click', (e) => {
+    const opener = e.target.closest('[data-open-course]');
+    if(opener){ openCourseModal(opener.dataset.openCourse); }
+  });
+  modalCloseBtn.addEventListener('click', closeCourseModal);
+  modalBody.addEventListener('click', (e) => { if(e.target.closest('[data-close-modal]')) closeCourseModal(); });
+  courseModalOverlay.addEventListener('click', (e) => { if(e.target === courseModalOverlay) closeCourseModal(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && courseModalOverlay.classList.contains('open')) closeCourseModal(); });
+}
 
 /* ================= LAB TERMINAL TYPE EFFECT ================= */
 const labLines = [
@@ -601,5 +792,18 @@ if(form && status){
     setTimeout(() => status.classList.remove('show'), 4500);
     form.reset();
   });
+}
+
+/* ================= SCROLL REVEAL (initialized last, after all dynamic content) ================= */
+const revealEls = document.querySelectorAll('.reveal');
+if(reduceMotion){
+  revealEls.forEach(el => el.classList.add('in'));
+} else {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
 }
 

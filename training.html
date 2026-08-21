@@ -71,99 +71,131 @@
 </div>
 
 <main>
-<!-- TRAINING -->
-<section class="section" id="training">
+<!-- TRAINING HERO -->
+<section class="section training-hero">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Cybersecurity Training</span>
-      <h2 class="section-title">Build the next generation of cyber defenders.</h2>
-      <p class="section-sub">Practical cybersecurity training designed to develop real-world security skills.</p>
-    </div>
-    <div class="training-grid" id="trainingGrid"></div>
-    <div style="margin-top:32px;">
-      <a href="contact.html" class="btn btn-primary" data-cursor="VIEW">View Training Programs →</a>
+    <span class="academy-badge reveal">🎓 RED SHIELD ACADEMY</span>
+    <h1 class="reveal reveal-delay-1">Build Skills. Break Assumptions. <span style="color:var(--red-bright);">Defend Systems.</span></h1>
+    <p class="th-sub reveal reveal-delay-2">Hands-on cybersecurity and networking training designed to turn foundational knowledge into practical security skills.</p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#courses" class="btn btn-primary" data-cursor="VIEW">Explore Courses</a>
+      <a href="#cyber-range" class="btn btn-ghost" data-cursor="VIEW">Enter Cyber Range</a>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATION PATHWAYS -->
-<section class="section" id="certifications">
+<!-- COURSE SPOTLIGHT -->
+<section class="section" id="courses" style="padding-top:20px;">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Certification Pathways</span>
-      <h2 class="section-title">Two tracks. One goal: job-ready skills.</h2>
-      <p class="section-sub">Our two flagship pathways — Certified Ethical Hacker preparation and CCNA networking foundations — go deeper than the overview above, with a structured curriculum built around what employers actually test for.</p>
+      <span class="eyebrow">Training Programs</span>
+      <h2 class="section-title">Start here.</h2>
+      <p class="section-sub">Two flagship programs, built to be taken in either order — though we usually recommend networking first.</p>
     </div>
+    <div class="course-spotlight-grid" id="courseSpotlightGrid"></div>
+    <p class="cert-note" style="margin-top:28px;">Note: Red Shield CyberOps provides exam-aligned preparation training. We are not EC-Council or Cisco and do not issue official CEH or CCNA certifications directly — certification exams are taken through the respective certifying bodies.</p>
+  </div>
+</section>
 
-    <div class="cert-grid">
-      <div class="card cert-card reveal">
-        <div class="picture-panel course-picture"><img src="images/course-ceh-preparation.svg" alt="CEH Preparation Training" loading="lazy"></div>
-        <span class="tag">Ethical Hacking</span>
-        <h3 style="margin-top:8px;">CEH — Certified Ethical Hacker Preparation</h3>
-        <p class="desc">A structured preparation track for the Certified Ethical Hacker (CEH) exam, built around the five phases of ethical hacking: reconnaissance, scanning, gaining access, maintaining access, and covering tracks — taught with hands-on labs rather than slides alone.</p>
-        <h4 class="cert-subhead">Curriculum covers</h4>
-        <ul class="service-list cert-list">
-          <li>Footprinting &amp; reconnaissance</li>
-          <li>Scanning networks &amp; enumeration</li>
-          <li>Vulnerability analysis</li>
-          <li>System hacking techniques</li>
-          <li>Malware threats &amp; analysis</li>
-          <li>Sniffing &amp; social engineering</li>
-          <li>Web application &amp; API attacks</li>
-          <li>Wireless &amp; mobile security</li>
-          <li>Cloud &amp; IoT security basics</li>
-          <li>Cryptography fundamentals</li>
-        </ul>
-        <div class="cert-meta">
-          <span class="cert-meta-item">🎯 Who it's for: aspiring pentesters, SOC analysts, IT staff moving into security</span>
-          <span class="cert-meta-item">📋 Prerequisites: basic networking &amp; OS knowledge recommended</span>
-          <span class="cert-meta-item">⏱ Format &amp; duration: [ editable — confirm cohort length / self-paced option ]</span>
-        </div>
-      </div>
-
-      <div class="card cert-card reveal reveal-delay-1">
-        <div class="picture-panel course-picture"><img src="images/course-ccna-networking.svg" alt="CCNA Course" loading="lazy"></div>
-        <span class="tag">Networking</span>
-        <h3 style="margin-top:8px;">CCNA — Cisco Networking Fundamentals</h3>
-        <p class="desc">A ground-up networking course aligned to CCNA exam topics — the foundation nearly every other security specialty builds on. Strong network fundamentals make every later course (pentesting, cloud, network security) click faster.</p>
-        <h4 class="cert-subhead">Curriculum covers</h4>
-        <ul class="service-list cert-list">
-          <li>Network fundamentals &amp; the OSI model</li>
-          <li>IP addressing &amp; subnetting</li>
-          <li>Routing concepts &amp; protocols</li>
-          <li>Switching, VLANs &amp; trunking</li>
-          <li>Wireless networking basics</li>
-          <li>Network access control &amp; ACLs</li>
-          <li>IP services (NAT, DHCP, NTP)</li>
-          <li>Network security fundamentals</li>
-          <li>Automation &amp; programmability basics</li>
-        </ul>
-        <div class="cert-meta">
-          <span class="cert-meta-item">🎯 Who it's for: beginners, career-changers, anyone before starting CEH</span>
-          <span class="cert-meta-item">📋 Prerequisites: none — this is the recommended starting point</span>
-          <span class="cert-meta-item">⏱ Format &amp; duration: [ editable — confirm cohort length / self-paced option ]</span>
-        </div>
-      </div>
+<!-- COURSE ROADMAPS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Curriculum</span>
+      <h2 class="section-title">Course Roadmap</h2>
+      <p class="section-sub">A module-by-module path — from fundamentals to a practical capstone.</p>
     </div>
+    <div class="track-tabs" id="roadmapTabs" role="tablist"></div>
+    <div id="roadmapPanels"></div>
+  </div>
+</section>
 
-    <div class="photo-banner reveal">
-      <div class="photo-frame" style="aspect-ratio:21/8;">
-        <img src="images/photos/hands-on-analysis.jpg" alt="Hands-on cybersecurity training and analysis" loading="lazy">
-        <span class="photo-tag">HANDS-ON, LAB-DRIVEN LEARNING</span>
-      </div>
+<!-- HANDS-ON LABS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Practice Environment</span>
+      <h2 class="section-title">Hands-On Labs</h2>
+      <p class="section-sub">Every concept is paired with a lab. <span class="lab-authorized-tag" style="margin-bottom:0;">AUTHORIZED TRAINING ENVIRONMENT</span></p>
     </div>
+    <div class="track-tabs" id="labTabs" role="tablist"></div>
+    <div id="labPanels"></div>
+  </div>
+</section>
 
-    <p class="cert-note">Note: Red Shield CyberOps provides exam-aligned preparation training. We are not EC-Council or Cisco and do not issue official CEH or CCNA certifications directly — certification exams are taken through the respective certifying bodies.</p>
+<!-- TOOLS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Toolkit</span>
+      <h2 class="section-title">Tools You Will Work With</h2>
+      <p class="section-sub">Industry-standard tools across both tracks — used in labs, not just described in slides.</p>
+    </div>
+    <div class="track-tabs" id="toolTabs" role="tablist"></div>
+    <div id="toolPanels"></div>
+  </div>
+</section>
+
+<!-- LEARNING OUTCOMES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Outcomes</span>
+      <h2 class="section-title">After Completing This Course</h2>
+    </div>
+    <div class="track-tabs" id="outcomeTabs" role="tablist"></div>
+    <div id="outcomePanels"></div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Which One First?</span>
+      <h2 class="section-title">Which course should you start with?</h2>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead><tr><th>Cybersecurity Fundamentals</th><th>CCNA Networking</th></tr></thead>
+        <tbody>
+          <tr><td>Security focused</td><td>Networking focused</td></tr>
+          <tr><td>Ethical hacking</td><td>Routing &amp; switching</td></tr>
+          <tr><td>Vulnerability assessment</td><td>Network configuration</td></tr>
+          <tr><td>Web security</td><td>Network troubleshooting</td></tr>
+          <tr><td>SOC fundamentals</td><td>Network fundamentals</td></tr>
+          <tr><td>Security tools</td><td>Cisco Packet Tracer</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="recommended-path reveal">
+      <span class="rp-label">RECOMMENDED PATH:</span>
+      <span>CCNA / Networking Fundamentals</span><span class="rp-arrow">→</span>
+      <span>Cybersecurity Fundamentals</span><span class="rp-arrow">→</span>
+      <span>Advanced Security</span>
+    </div>
+    <p class="section-sub" style="margin-top:16px;max-width:640px;">Strong networking knowledge makes cybersecurity concepts click faster — subnetting, routing, and traffic analysis all show up again once you're scanning networks or reading packet captures. If you're new to IT entirely, start with CCNA.</p>
+  </div>
+</section>
+
+<!-- TRAINING JOURNEY -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">The Path</span>
+      <h2 class="section-title">Training Journey</h2>
+    </div>
+    <div class="journey" id="trainingJourney"></div>
   </div>
 </section>
 
 <!-- LAB -->
-<section class="section">
+<section class="section" id="cyber-range">
   <div class="container lab-grid">
     <div class="reveal">
       <span class="eyebrow">Cyber Range</span>
       <h2 class="section-title">Practice. Break. Learn. Defend.</h2>
-      <p class="section-sub" style="max-width:480px;">A virtual, authorized training environment where students apply offensive and defensive techniques hands-on.</p>
+      <p class="section-sub" style="max-width:480px;">Learn by doing — not just watching. A virtual, authorized training environment where students apply offensive and defensive techniques hands-on.</p>
       <div class="lab-cards" style="margin-top:30px;">
         <div class="card lab-card"><span class="dot"></span><span class="name">Web Security Lab</span></div>
         <div class="card lab-card"><span class="dot"></span><span class="name">Network Security Lab</span></div>
@@ -212,7 +244,36 @@
     </div>
   </div>
 </section>
+
+<!-- FINAL CTA -->
+<section class="section">
+  <div class="container">
+    <div class="training-final-cta reveal">
+      <h2>Ready to Start Your Cybersecurity Journey?</h2>
+      <p>Build the networking foundation. Develop security skills. Practice in authorized environments. Prepare for the next step in your cybersecurity career.</p>
+      <div class="hero-actions">
+        <a href="#courses" class="btn btn-primary" data-cursor="VIEW">Start Training →</a>
+        <a href="contact.html" class="btn btn-ghost" data-cursor="ACCESS">Contact Red Shield CyberOps →</a>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
+
+<!-- COURSE DETAILS MODAL -->
+<div class="course-modal-overlay" id="courseModalOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="courseModalTitle">
+  <div class="course-modal" id="courseModal">
+    <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close course details">✕</button>
+    <div class="modal-hero-img">
+      <img id="modalHeroImg" src="" alt="" loading="lazy">
+      <div class="modal-hero-text">
+        <span class="tag" id="modalTag"></span>
+        <h3 id="courseModalTitle"></h3>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
 
 <footer>
   <div class="container">
@@ -234,7 +295,7 @@
       </div>
       <div class="footer-col">
         <h5>Training</h5>
-        <ul><li><a href="training.html">Cybersecurity Fundamentals</a></li><li><a href="training.html">CEH Preparation</a></li><li><a href="training.html">CCNA / Networking</a></li><li><a href="training.html">Advanced Security</a></li></ul>
+        <ul><li><a href="training.html#courses">Cybersecurity Fundamentals</a></li><li><a href="training.html#courses">CCNA Networking</a></li><li><a href="training.html#cyber-range">Cyber Range</a></li><li><a href="training.html#research">Research</a></li></ul>
       </div>
       <div class="footer-col">
         <h5>Connect</h5>
