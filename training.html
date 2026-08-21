@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Training &amp; Cyber Range | Red Shield CyberOps</title>
+<meta name="description" content="Hands-on cybersecurity training programs and a virtual cyber range from Red Shield CyberOps — CEH preparation, CCNA foundations, and more.">
+<meta name="keywords" content="cybersecurity services, cybersecurity company, penetration testing, web application security, mobile application security, vulnerability assessment, security audit, API security, cybersecurity training, ethical hacking training, CEH preparation, CCNA training, network security, cybersecurity consulting">
+<meta property="og:title" content="Cybersecurity Training &amp; Cyber Range | Red Shield CyberOps">
+<meta property="og:description" content="Hands-on cybersecurity training programs and a virtual cyber range from Red Shield CyberOps — CEH preparation, CCNA foundations, and more.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Red Shield CyberOps",
+  "description": "Penetration testing, vulnerability assessment, security audits and cybersecurity training.",
+  "areaServed": "Global",
+  "slogan": "Defend. Detect. Dominate."
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grain"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-label" id="cursorLabel">ACCESS</div>
+
+<!-- NAV -->
+<header id="siteHeader">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="images/logo.jpeg" alt="Red Shield CyberOps logo">
+      <span class="logo-text"><span class="l1">RED SHIELD</span><br><span class="l2">CYBEROPS</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="nav-item-dropdown" id="navServicesItem">
+        <button class="nav-drop-trigger" type="button" aria-haspopup="true" aria-expanded="false">
+          Services
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel" data-nav-services-panel></div>
+      </div>
+      <a href="training.html" class="active-link">Training</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-ghost nav-cta" data-cursor="ACCESS">Get Secured →</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <div class="mobile-drop-trigger" id="mobileServicesTrigger">
+    <span>Services</span>
+    <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="mobile-services-list" id="mobileServicesList" data-nav-services-panel></div>
+  <a href="training.html" class="active-link">Training</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main>
+<!-- TRAINING -->
+<section class="section" id="training">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cybersecurity Training</span>
+      <h2 class="section-title">Build the next generation of cyber defenders.</h2>
+      <p class="section-sub">Practical cybersecurity training designed to develop real-world security skills.</p>
+    </div>
+    <div class="training-grid" id="trainingGrid"></div>
+    <div style="margin-top:32px;">
+      <a href="contact.html" class="btn btn-primary" data-cursor="VIEW">View Training Programs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATION PATHWAYS -->
+<section class="section" id="certifications">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Certification Pathways</span>
+      <h2 class="section-title">Two tracks. One goal: job-ready skills.</h2>
+      <p class="section-sub">Our two flagship pathways — Certified Ethical Hacker preparation and CCNA networking foundations — go deeper than the overview above, with a structured curriculum built around what employers actually test for.</p>
+    </div>
+
+    <div class="cert-grid">
+      <div class="card cert-card reveal">
+        <div class="picture-panel course-picture"><img src="images/course-ceh-preparation.svg" alt="CEH Preparation Training" loading="lazy"></div>
+        <span class="tag">Ethical Hacking</span>
+        <h3 style="margin-top:8px;">CEH — Certified Ethical Hacker Preparation</h3>
+        <p class="desc">A structured preparation track for the Certified Ethical Hacker (CEH) exam, built around the five phases of ethical hacking: reconnaissance, scanning, gaining access, maintaining access, and covering tracks — taught with hands-on labs rather than slides alone.</p>
+        <h4 class="cert-subhead">Curriculum covers</h4>
+        <ul class="service-list cert-list">
+          <li>Footprinting &amp; reconnaissance</li>
+          <li>Scanning networks &amp; enumeration</li>
+          <li>Vulnerability analysis</li>
+          <li>System hacking techniques</li>
+          <li>Malware threats &amp; analysis</li>
+          <li>Sniffing &amp; social engineering</li>
+          <li>Web application &amp; API attacks</li>
+          <li>Wireless &amp; mobile security</li>
+          <li>Cloud &amp; IoT security basics</li>
+          <li>Cryptography fundamentals</li>
+        </ul>
+        <div class="cert-meta">
+          <span class="cert-meta-item">🎯 Who it's for: aspiring pentesters, SOC analysts, IT staff moving into security</span>
+          <span class="cert-meta-item">📋 Prerequisites: basic networking &amp; OS knowledge recommended</span>
+          <span class="cert-meta-item">⏱ Format &amp; duration: [ editable — confirm cohort length / self-paced option ]</span>
+        </div>
+      </div>
+
+      <div class="card cert-card reveal reveal-delay-1">
+        <div class="picture-panel course-picture"><img src="images/course-ccna-networking.svg" alt="CCNA Course" loading="lazy"></div>
+        <span class="tag">Networking</span>
+        <h3 style="margin-top:8px;">CCNA — Cisco Networking Fundamentals</h3>
+        <p class="desc">A ground-up networking course aligned to CCNA exam topics — the foundation nearly every other security specialty builds on. Strong network fundamentals make every later course (pentesting, cloud, network security) click faster.</p>
+        <h4 class="cert-subhead">Curriculum covers</h4>
+        <ul class="service-list cert-list">
+          <li>Network fundamentals &amp; the OSI model</li>
+          <li>IP addressing &amp; subnetting</li>
+          <li>Routing concepts &amp; protocols</li>
+          <li>Switching, VLANs &amp; trunking</li>
+          <li>Wireless networking basics</li>
+          <li>Network access control &amp; ACLs</li>
+          <li>IP services (NAT, DHCP, NTP)</li>
+          <li>Network security fundamentals</li>
+          <li>Automation &amp; programmability basics</li>
+        </ul>
+        <div class="cert-meta">
+          <span class="cert-meta-item">🎯 Who it's for: beginners, career-changers, anyone before starting CEH</span>
+          <span class="cert-meta-item">📋 Prerequisites: none — this is the recommended starting point</span>
+          <span class="cert-meta-item">⏱ Format &amp; duration: [ editable — confirm cohort length / self-paced option ]</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-banner reveal">
+      <div class="photo-frame" style="aspect-ratio:21/8;">
+        <img src="images/photos/hands-on-analysis.jpg" alt="Hands-on cybersecurity training and analysis" loading="lazy">
+        <span class="photo-tag">HANDS-ON, LAB-DRIVEN LEARNING</span>
+      </div>
+    </div>
+
+    <p class="cert-note">Note: Red Shield CyberOps provides exam-aligned preparation training. We are not EC-Council or Cisco and do not issue official CEH or CCNA certifications directly — certification exams are taken through the respective certifying bodies.</p>
+  </div>
+</section>
+
+<!-- LAB -->
+<section class="section">
+  <div class="container lab-grid">
+    <div class="reveal">
+      <span class="eyebrow">Cyber Range</span>
+      <h2 class="section-title">Practice. Break. Learn. Defend.</h2>
+      <p class="section-sub" style="max-width:480px;">A virtual, authorized training environment where students apply offensive and defensive techniques hands-on.</p>
+      <div class="lab-cards" style="margin-top:30px;">
+        <div class="card lab-card"><span class="dot"></span><span class="name">Web Security Lab</span></div>
+        <div class="card lab-card"><span class="dot"></span><span class="name">Network Security Lab</span></div>
+        <div class="card lab-card"><span class="dot"></span><span class="name">Linux Security Lab</span></div>
+        <div class="card lab-card"><span class="dot"></span><span class="name">Active Directory Lab</span></div>
+        <div class="card lab-card"><span class="dot"></span><span class="name">SOC Lab</span></div>
+        <div class="card lab-card"><span class="dot"></span><span class="name">CTF Challenges</span></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <div class="terminal-body" id="labTerminal"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="photo-strip">
+    <div class="photo-frame reveal">
+      <img src="images/photos/code-glasses.jpg" alt="Reviewing code and security tooling" loading="lazy">
+      <span class="photo-tag">HANDS-ON LEARNING</span>
+    </div>
+    <div class="photo-frame reveal reveal-delay-1">
+      <img src="images/photos/analyst-dark.jpg" alt="Student working through a lab exercise" loading="lazy">
+      <span class="photo-tag">CYBER RANGE</span>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Research &amp; Innovation</span>
+      <h2 class="section-title">Research. Innovation. Defense.</h2>
+      <p class="section-sub">Applied research that keeps our methodology ahead of evolving threats.</p>
+    </div>
+    <div class="research-grid" id="researchGrid"></div>
+    <div class="photo-banner reveal">
+      <div class="photo-frame" style="aspect-ratio:21/8;">
+        <img src="images/photos/research-data-team.jpg" alt="Research team analyzing security data" loading="lazy">
+        <span class="photo-tag">APPLIED SECURITY RESEARCH</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img class="logo-mark" src="images/logo.jpeg" alt="Red Shield CyberOps logo">
+          <span class="logo-text"><span class="l1">RED SHIELD</span><br><span class="l2">CYBEROPS</span></span>
+        </a>
+        <p>“Defend. Detect. Dominate.” Professional cybersecurity services and hands-on training.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="training.html">Research</a></li><li><a href="contact.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Security</h5>
+        <ul><li><a href="services.html#web-application-security">Web Security</a></li><li><a href="services.html#penetration-testing">Penetration Testing</a></li><li><a href="services.html#security-audit">Security Audit</a></li><li><a href="services.html#vulnerability-assessment">Vulnerability Assessment</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Training</h5>
+        <ul><li><a href="training.html">Cybersecurity Fundamentals</a></li><li><a href="training.html">CEH Preparation</a></li><li><a href="training.html">CCNA / Networking</a></li><li><a href="training.html">Advanced Security</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul><li><a href="#" data-social="linkedin">LinkedIn</a></li><li><a href="#" data-social="facebook">Facebook</a></li><li><a href="#" data-social="instagram">Instagram</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Red Shield CyberOps. All Rights Reserved.</span>
+      <span class="auth-tag">AUTHORIZED SECURITY TESTING ONLY</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Red Shield CyberOps | Our Approach &amp; Lead Researcher</title>
+<meta name="description" content="Learn how Red Shield CyberOps approaches offensive security, and meet the lead researcher behind our assessments.">
+<meta name="keywords" content="cybersecurity services, cybersecurity company, penetration testing, web application security, mobile application security, vulnerability assessment, security audit, API security, cybersecurity training, ethical hacking training, CEH preparation, CCNA training, network security, cybersecurity consulting">
+<meta property="og:title" content="About Red Shield CyberOps | Our Approach &amp; Lead Researcher">
+<meta property="og:description" content="Learn how Red Shield CyberOps approaches offensive security, and meet the lead researcher behind our assessments.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Red Shield CyberOps",
+  "description": "Penetration testing, vulnerability assessment, security audits and cybersecurity training.",
+  "areaServed": "Global",
+  "slogan": "Defend. Detect. Dominate."
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grain"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-label" id="cursorLabel">ACCESS</div>
+
+<!-- NAV -->
+<header id="siteHeader">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="images/logo.jpeg" alt="Red Shield CyberOps logo">
+      <span class="logo-text"><span class="l1">RED SHIELD</span><br><span class="l2">CYBEROPS</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active-link">About</a>
+      <div class="nav-item-dropdown" id="navServicesItem">
+        <button class="nav-drop-trigger" type="button" aria-haspopup="true" aria-expanded="false">
+          Services
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel" data-nav-services-panel></div>
+      </div>
+      <a href="training.html">Training</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-ghost nav-cta" data-cursor="ACCESS">Get Secured →</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active-link">About</a>
+  <div class="mobile-drop-trigger" id="mobileServicesTrigger">
+    <span>Services</span>
+    <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="mobile-services-list" id="mobileServicesList" data-nav-services-panel></div>
+  <a href="training.html">Training</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="eyebrow">About Red Shield</span>
+      <h2 class="section-title">We think like attackers.<br>We defend like experts.</h2>
+      <p class="section-sub" style="max-width:520px;">Red Shield CyberOps helps organizations identify security weaknesses before malicious actors can exploit them — combining offensive security expertise with practical, business-focused reporting.</p>
+      <ul class="about-points">
+        <li>Security-first mindset embedded into every engagement</li>
+        <li>Ethical hacking performed strictly within authorized scope</li>
+        <li>Continuous improvement, not one-off checkbox testing</li>
+        <li>Risk-based prioritization tied to real business impact</li>
+        <li>Industry-focused assessments across web, mobile, cloud &amp; API</li>
+        <li>Practical, hands-on cybersecurity training programs</li>
+      </ul>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <svg viewBox="0 0 200 220" fill="none">
+        <path d="M100 8 176 36v52c0 48-32 90-76 104-44-14-76-56-76-104V36Z" stroke="#E50914" stroke-width="1.2" opacity="0.9"/>
+        <path d="M100 30 158 50v40c0 36-24 68-58 79-34-11-58-43-58-79V50Z" stroke="#FF1E2D" stroke-width="0.6" opacity="0.5"/>
+        <circle cx="100" cy="100" r="4" fill="#FF1E2D"/>
+        <circle cx="100" cy="100" r="30" stroke="#70000A" stroke-width="0.6" opacity="0.7"/>
+        <circle cx="100" cy="100" r="55" stroke="#70000A" stroke-width="0.4" opacity="0.4"/>
+        <path d="M70 105l20 20 40-44" stroke="#F5F5F5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="container">
+    <div class="photo-banner reveal">
+      <div class="photo-frame" style="aspect-ratio:16/8;">
+        <img src="images/photos/soc-office.jpg" alt="Red Shield CyberOps style security operations workspace" loading="lazy">
+        <span class="photo-tag">SECURITY OPERATIONS &mdash; ILLUSTRATIVE</span>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal"><div class="num" data-count="100">0</div><div class="label">SECURITY ASSESSMENTS</div><span class="placeholder-tag">[ editable placeholder ]</span></div>
+      <div class="stat reveal reveal-delay-1"><div class="num" data-count="50">0</div><div class="label">SECURITY PROJECTS</div><span class="placeholder-tag">[ editable placeholder ]</span></div>
+      <div class="stat reveal reveal-delay-2"><div class="num" data-count="500">0</div><div class="label">PROFESSIONALS TRAINED</div><span class="placeholder-tag">[ editable placeholder ]</span></div>
+      <div class="stat reveal reveal-delay-3"><div class="num" style="font-size:36px;color:var(--red-bright);">24/7</div><div class="label">SECURITY MINDSET</div><span class="placeholder-tag">&nbsp;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELDS WE COVER -->
+<section class="section">
+  <div class="container about-grid">
+    <div class="about-visual reveal" style="order:2;">
+      <div class="photo-frame" style="aspect-ratio:3/4;">
+        <img src="images/photos/cybersecurity-fields.jpg" alt="The many fields within cybersecurity" loading="lazy">
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1" style="order:1;">
+      <span class="eyebrow">Depth &amp; Breadth</span>
+      <h2 class="section-title">Cybersecurity isn't one skill. It's dozens.</h2>
+      <p class="section-sub" style="max-width:520px;">Our team draws on specialists across the discipline rather than treating security as a single checklist item — so an engagement is staffed by people who actually work in that field, not generalists stretching outside their lane.</p>
+      <ul class="about-points">
+        <li>Ethical hacking &amp; penetration testing</li>
+        <li>Network engineering &amp; network security</li>
+        <li>Malware analysis &amp; reverse engineering</li>
+        <li>Digital forensics &amp; incident response</li>
+        <li>Cloud security &amp; IoT security</li>
+        <li>AI/ML security, OSINT &amp; threat intelligence</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP & WHO WE SERVE -->
+<section class="section">
+  <div class="container">
+    <div class="photo-strip">
+      <div class="photo-frame reveal" style="aspect-ratio:16/10;">
+        <img src="images/photos/leadership-boardroom.jpg" alt="Leadership reviewing security strategy" loading="lazy">
+        <span class="photo-tag">STRATEGY-LED, NOT TOOL-LED</span>
+      </div>
+      <div class="photo-frame reveal reveal-delay-1" style="aspect-ratio:16/10;">
+        <img src="images/photos/social-strategy-meeting.jpg" alt="Presenting security findings to a client team" loading="lazy">
+        <span class="photo-tag">CLEAR REPORTING FOR EVERY AUDIENCE</span>
+      </div>
+    </div>
+    <div class="about-extra reveal reveal-delay-2">
+      <h3>Built for the way real organizations make decisions</h3>
+      <p>Security findings only matter if the right people can act on them. That's why every engagement produces two layers of reporting: a technical breakdown engineers can act on immediately, and an executive summary leadership can use to prioritize budget and risk — without needing a security background to follow it. We work with startups, growing SaaS companies, universities, and organizations that need an outside, adversarial perspective on their own systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER / LEAD RESEARCHER -->
+<section class="section" id="researcher">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Meet The Team</span>
+      <h2 class="section-title">The researcher behind Red Shield</h2>
+      <p class="section-sub">Offensive security experience, backed by hands-on bug bounty work.</p>
+    </div>
+    <div class="founder-wrap reveal">
+      <div class="founder-avatar-wrap">
+        <div class="founder-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M12 2 4 5v6c0 5.5 3.6 9.7 8 11 4.4-1.3 8-5.5 8-11V5Z"/>
+            <circle cx="12" cy="10" r="2.6"/>
+            <path d="M8 16.2c.7-1.8 2.2-2.7 4-2.7s3.3.9 4 2.7"/>
+          </svg>
+        </div>
+        <div class="founder-name">Osama Nazimi</div>
+        <div class="founder-title">Founder &amp; CEO</div>
+        <a href="mailto:osama.nazimi@abasyn.edu.pk" class="founder-avatar-tag" style="color:var(--red-bright);">osama.nazimi@abasyn.edu.pk</a>
+      </div>
+      <div class="founder-bio">
+        <div class="founder-badges">
+          <span class="founder-badge">MS Cyber Security — FAST-NUCES Islamabad</span>
+          <span class="founder-badge">CEH (EC-Council)</span>
+          <span class="founder-badge">DFIR</span>
+          <span class="founder-badge">3+ Years in Cybersecurity</span>
+        </div>
+        <p>Osama Nazimi is the founder and CEO of Red Shield CyberOps, with a Master's in Cyber Security from FAST-NUCES Islamabad and industry certifications including Certified Ethical Hacker (CEH, EC-Council) and Digital Forensics &amp; Incident Response (DFIR). Over 3 years of hands-on experience in offensive security, vulnerability research, and bug bounty hunting — testing production systems for real-world organizations and reporting findings through responsible disclosure.</p>
+        <div class="disclosure-list">
+          <div class="disclosure-item">
+            <svg class="d-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.6 9.7 8 11 4.4-1.3 8-5.5 8-11V5Z"/></svg>
+            <span><b>NASA</b> — Vulnerability identified and responsibly disclosed through NASA's Vulnerability Disclosure Program.</span>
+          </div>
+          <div class="disclosure-item">
+            <svg class="d-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.6 9.7 8 11 4.4-1.3 8-5.5 8-11V5Z"/></svg>
+            <span><b>Abasyn University</b> — Security weakness identified and reported to the university's IT security team.</span>
+          </div>
+          <div class="disclosure-item">
+            <svg class="d-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.6 9.7 8 11 4.4-1.3 8-5.5 8-11V5Z"/></svg>
+            <span><b>Banco Plate (Spain)</b> — Vulnerability discovered and disclosed on a Spanish banking platform.</span>
+          </div>
+          <div class="disclosure-item">
+            <svg class="d-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.6 9.7 8 11 4.4-1.3 8-5.5 8-11V5Z"/></svg>
+            <span><b>Additional bug bounty programs</b> — Multiple further vulnerabilities reported across private and public bug bounty platforms.</span>
+          </div>
+        </div>
+        <p class="founder-editnote">[ Editable placeholder — replace with your verified name, dates, and the exact, accurate description of each disclosure. Avoid publishing vulnerability details that haven't been authorized for public release by the affected organization. ]</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img class="logo-mark" src="images/logo.jpeg" alt="Red Shield CyberOps logo">
+          <span class="logo-text"><span class="l1">RED SHIELD</span><br><span class="l2">CYBEROPS</span></span>
+        </a>
+        <p>“Defend. Detect. Dominate.” Professional cybersecurity services and hands-on training.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="training.html">Research</a></li><li><a href="contact.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Security</h5>
+        <ul><li><a href="services.html#web-application-security">Web Security</a></li><li><a href="services.html#penetration-testing">Penetration Testing</a></li><li><a href="services.html#security-audit">Security Audit</a></li><li><a href="services.html#vulnerability-assessment">Vulnerability Assessment</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Training</h5>
+        <ul><li><a href="training.html">Cybersecurity Fundamentals</a></li><li><a href="training.html">CEH Preparation</a></li><li><a href="training.html">CCNA / Networking</a></li><li><a href="training.html">Advanced Security</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul><li><a href="#" data-social="linkedin">LinkedIn</a></li><li><a href="#" data-social="facebook">Facebook</a></li><li><a href="#" data-social="instagram">Instagram</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Red Shield CyberOps. All Rights Reserved.</span>
+      <span class="auth-tag">AUTHORIZED SECURITY TESTING ONLY</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
